@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif">
+  <defs>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#178a55"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3860c6"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="560" height="300" fill="#ffffff"/>
+
+  <!-- Board A -->
+  <rect x="40" y="60" width="150" height="110" rx="8" fill="#e0f2e9" stroke="#178a55" stroke-width="2.5"/>
+  <text x="115" y="88" text-anchor="middle" font-size="15" font-weight="700" fill="#178a55">Pico W (A)</text>
+  <circle cx="190" cy="115" r="4" fill="#1b1e25"/>
+  <text x="175" y="112" text-anchor="end" font-size="13" font-weight="700" fill="#1b1e25">TX (GP0)</text>
+  <circle cx="190" cy="150" r="4" fill="#1b1e25"/>
+  <text x="175" y="147" text-anchor="end" font-size="13" font-weight="700" fill="#1b1e25">RX (GP1)</text>
+
+  <!-- Board B -->
+  <rect x="370" y="60" width="150" height="110" rx="8" fill="#e4ebfb" stroke="#3860c6" stroke-width="2.5"/>
+  <text x="445" y="88" text-anchor="middle" font-size="15" font-weight="700" fill="#3860c6">Pico W (B)</text>
+  <circle cx="370" cy="115" r="4" fill="#1b1e25"/>
+  <text x="385" y="112" text-anchor="start" font-size="13" font-weight="700" fill="#1b1e25">RX (GP1)</text>
+  <circle cx="370" cy="150" r="4" fill="#1b1e25"/>
+  <text x="385" y="147" text-anchor="start" font-size="13" font-weight="700" fill="#1b1e25">TX (GP0)</text>
+
+  <!-- crossing wires: A.TX -> B.RX, B.TX -> A.RX -->
+  <path d="M 190 115 C 280 115, 280 115, 370 115" fill="none" stroke="#178a55" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+  <path d="M 370 150 C 280 150, 280 150, 190 150" fill="none" stroke="#3860c6" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+
+  <text x="280" y="103" text-anchor="middle" font-size="12" fill="#178a55" font-weight="700">A.TX → B.RX</text>
+  <text x="280" y="168" text-anchor="middle" font-size="12" fill="#3860c6" font-weight="700">B.TX → A.RX</text>
+
+  <!-- GND shared line -->
+  <line x1="115" y1="170" x2="115" y2="230" stroke="#586070" stroke-width="2"/>
+  <line x1="445" y1="170" x2="445" y2="230" stroke="#586070" stroke-width="2"/>
+  <line x1="115" y1="230" x2="445" y2="230" stroke="#586070" stroke-width="2.5" stroke-dasharray="7 5"/>
+  <text x="280" y="250" text-anchor="middle" font-size="13" font-weight="700" fill="#586070">GND同士も必ず接続する(電位の基準を共有)</text>
+
+  <text x="280" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1e25">UARTのクロス配線:同じ名前同士は繋がない</text>
+</svg>
