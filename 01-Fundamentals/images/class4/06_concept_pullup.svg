@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 380" font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif">
+  <rect x="0" y="0" width="520" height="380" fill="#ffffff"/>
+
+  <!-- VCC rail -->
+  <line x1="260" y1="30" x2="260" y2="60" stroke="#1b1e25" stroke-width="2.5"/>
+  <line x1="230" y1="30" x2="290" y2="30" stroke="#1b1e25" stroke-width="3"/>
+  <text x="260" y="20" text-anchor="middle" font-size="15" font-weight="700" fill="#178a55">3.3V (VCC)</text>
+
+  <!-- resistor from VCC down to node -->
+  <polyline points="260,60 248,70 272,82 248,94 272,106 260,118" fill="none" stroke="#1b1e25" stroke-width="2.5"/>
+  <text x="330" y="90" text-anchor="middle" font-size="13" fill="#586070">プルアップ抵抗 R</text>
+  <line x1="260" y1="118" x2="260" y2="150" stroke="#1b1e25" stroke-width="2.5"/>
+
+  <!-- node point -->
+  <circle cx="260" cy="150" r="5" fill="#6a4dbd"/>
+  <text x="300" y="150" font-size="13" fill="#6a4dbd" font-weight="700">分岐点</text>
+
+  <!-- to GPIO -->
+  <line x1="260" y1="150" x2="380" y2="150" stroke="#1b1e25" stroke-width="2.5"/>
+  <rect x="380" y="120" width="110" height="60" fill="#eef2f8" stroke="#1b1e25" stroke-width="2"/>
+  <text x="435" y="145" text-anchor="middle" font-size="16" font-weight="700" fill="#1b1e25">GPIO</text>
+  <text x="435" y="165" text-anchor="middle" font-size="13" fill="#586070">Pin.IN</text>
+
+  <!-- to switch to GND -->
+  <line x1="260" y1="150" x2="230" y2="190" stroke="#1b1e25" stroke-width="2.5"/>
+  <circle cx="225" cy="195" r="4" fill="#1b1e25" fill-opacity="0.35"/>
+  <text x="330" y="200" text-anchor="middle" font-size="13" fill="#586070">タクトスイッチ</text>
+  <line x1="225" y1="195" x2="260" y2="235" stroke="#1b1e25" stroke-width="2.5"/>
+  <circle cx="260" cy="239" r="4" fill="#1b1e25"/>
+  <line x1="260" y1="243" x2="260" y2="300" stroke="#1b1e25" stroke-width="2.5"/>
+
+  <!-- GND rail -->
+  <line x1="220" y1="300" x2="300" y2="300" stroke="#1b1e25" stroke-width="3"/>
+  <line x1="232" y1="310" x2="288" y2="310" stroke="#1b1e25" stroke-width="2.5"/>
+  <line x1="244" y1="320" x2="276" y2="320" stroke="#1b1e25" stroke-width="2"/>
+  <text x="260" y="340" text-anchor="middle" font-size="15" font-weight="700" fill="#b23a3a">GND (0V)</text>
+
+  <text x="260" y="368" text-anchor="middle" font-size="14" font-weight="700" fill="#1b1e25">プルアップの場合:押すとLOW・離すとHIGH(今回とは逆)</text>
+</svg>

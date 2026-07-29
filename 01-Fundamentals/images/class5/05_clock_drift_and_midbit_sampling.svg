@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 460" font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif">
+  <rect x="0" y="0" width="640" height="460" fill="#ffffff"/>
+
+  <!-- ============ Panel 1: risk of drift accumulating across a frame ============ -->
+  <text x="320" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#b23a3a">リスク:送受信のクロックのわずかな速度差が、フレーム後半で無視できなくなる</text>
+
+  <!-- sender's true bit boundaries (evenly spaced, 8 periods) -->
+  <text x="40" y="70" font-size="12" fill="#586070" font-weight="700">送信側の</text>
+  <text x="40" y="86" font-size="12" fill="#586070" font-weight="700">ビット境界</text>
+  <g stroke="#1b1e25" stroke-width="1.5">
+    <line x1="110" y1="60" x2="110" y2="95"/>
+    <line x1="170" y1="60" x2="170" y2="95"/>
+    <line x1="230" y1="60" x2="230" y2="95"/>
+    <line x1="290" y1="60" x2="290" y2="95"/>
+    <line x1="350" y1="60" x2="350" y2="95"/>
+    <line x1="410" y1="60" x2="410" y2="95"/>
+    <line x1="470" y1="60" x2="470" y2="95"/>
+    <line x1="530" y1="60" x2="530" y2="95"/>
+    <line x1="590" y1="60" x2="590" y2="95"/>
+  </g>
+  <line x1="110" y1="78" x2="590" y2="78" stroke="#d8dde4" stroke-width="1.5"/>
+
+  <!-- receiver's sampling points, drifting later each bit (slightly slower clock) -->
+  <text x="40" y="130" font-size="12" fill="#586070" font-weight="700">受信側の</text>
+  <text x="40" y="146" font-size="12" fill="#586070" font-weight="700">サンプル点</text>
+  <line x1="110" y1="120" x2="590" y2="120" stroke="#d8dde4" stroke-width="1.5"/>
+  <circle cx="140" cy="120" r="5" fill="#178a55"/>
+  <circle cx="203" cy="120" r="5" fill="#178a55"/>
+  <circle cx="266" cy="120" r="5" fill="#178a55"/>
+  <circle cx="329" cy="120" r="5" fill="#178a55"/>
+  <circle cx="392" cy="120" r="5" fill="#b9860f"/>
+  <circle cx="455" cy="120" r="5" fill="#b9860f"/>
+  <circle cx="518" cy="120" r="6.5" fill="#b23a3a"/>
+  <text x="518" y="105" text-anchor="middle" font-size="18" fill="#b23a3a">⚠</text>
+  <text x="518" y="150" text-anchor="middle" font-size="11" fill="#b23a3a" font-weight="700">境界に近づき誤読の危険</text>
+
+  <text x="320" y="180" text-anchor="middle" font-size="12.5" fill="#1b1e25">1bitごとにわずかなズレが積み重なり、フレーム後半で危険域に近づいていく</text>
+
+  <line x1="20" y1="205" x2="620" y2="205" stroke="#d8dde4" stroke-width="1"/>
+
+  <!-- ============ Panel 2: mid-bit sampling as the mitigation ============ -->
+  <text x="320" y="235" text-anchor="middle" font-size="15" font-weight="700" fill="#178a55">工夫:UARTは各ビットの「真ん中」付近で電圧を読み取る</text>
+
+  <!-- one bit period, showing edge-risk zones (red) vs safe middle zone (green) -->
+  <rect x="140" y="270" width="360" height="70" fill="#ffffff" stroke="#1b1e25" stroke-width="2"/>
+  <rect x="140" y="270" width="60" height="70" fill="#b23a3a" fill-opacity="0.18"/>
+  <rect x="440" y="270" width="60" height="70" fill="#b23a3a" fill-opacity="0.18"/>
+  <rect x="200" y="270" width="240" height="70" fill="#178a55" fill-opacity="0.18"/>
+
+  <text x="170" y="360" text-anchor="middle" font-size="11" fill="#b23a3a">境界付近</text>
+  <text x="470" y="360" text-anchor="middle" font-size="11" fill="#b23a3a">境界付近</text>
+  <text x="320" y="360" text-anchor="middle" font-size="12" fill="#178a55" font-weight="700">安全地帯(中央)</text>
+
+  <!-- sample marker at the middle -->
+  <line x1="320" y1="255" x2="320" y2="270" stroke="#178a55" stroke-width="2.5"/>
+  <circle cx="320" cy="252" r="6" fill="#178a55"/>
+  <text x="320" y="230" text-anchor="middle" font-size="12" fill="#178a55" font-weight="700">サンプリング位置</text>
+
+  <!-- tolerance arrows showing margin around the sample point -->
+  <path d="M 260 305 L 200 305" stroke="#178a55" stroke-width="1.8" marker-end="url(#tol1)"/>
+  <path d="M 380 305 L 440 305" stroke="#178a55" stroke-width="1.8" marker-end="url(#tol2)"/>
+  <defs>
+    <marker id="tol1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#178a55"/>
+    </marker>
+    <marker id="tol2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#178a55"/>
+    </marker>
+  </defs>
+  <text x="320" y="322" text-anchor="middle" font-size="11" fill="#178a55">多少ズレてもこの範囲なら正しく読める</text>
+
+  <text x="320" y="400" text-anchor="middle" font-size="13" fill="#1b1e25" font-weight="700">境界(電圧が切り替わる瞬間)ではなく、値が安定している中央で読むことで、</text>
+  <text x="320" y="420" text-anchor="middle" font-size="13" fill="#1b1e25" font-weight="700">わずかなクロックのズレに対する余裕(マージン)を確保している</text>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 340" font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif">
+  <rect x="0" y="0" width="520" height="340" fill="#ffffff"/>
+
+  <!-- GPIO box -->
+  <rect x="40" y="140" width="120" height="60" fill="#eef2f8" stroke="#1b1e25" stroke-width="2"/>
+  <text x="100" y="165" text-anchor="middle" font-size="16" font-weight="700" fill="#1b1e25">GPIO</text>
+  <text x="100" y="185" text-anchor="middle" font-size="13" fill="#586070">Pin.IN</text>
+
+  <!-- wire from GPIO to switch -->
+  <line x1="160" y1="170" x2="240" y2="170" stroke="#1b1e25" stroke-width="2.5"/>
+
+  <!-- switch symbol -->
+  <circle cx="245" cy="170" r="4" fill="#1b1e25"/>
+  <line x1="249" y1="168" x2="300" y2="140" stroke="#1b1e25" stroke-width="2.5"/>
+  <circle cx="305" cy="138" r="4" fill="#1b1e25" fill-opacity="0.35"/>
+  <text x="270" y="120" text-anchor="middle" font-size="13" fill="#586070">タクトスイッチ</text>
+
+  <!-- dangling wire from switch, going nowhere -->
+  <line x1="309" y1="136" x2="360" y2="105" stroke="#b23a3a" stroke-width="2.5" stroke-dasharray="6 5"/>
+  <circle cx="362" cy="103" r="5" fill="#ffffff" stroke="#b23a3a" stroke-width="2.5"/>
+  <text x="400" y="95" text-anchor="middle" font-size="24" fill="#b23a3a" font-weight="700">?</text>
+  <text x="400" y="130" text-anchor="middle" font-size="12" fill="#b23a3a">どこにも<tspan x="400" dy="15">繋がっていない</tspan></text>
+
+  <!-- unstable reading annotation -->
+  <path d="M 60 230 q 15 -20 30 0 t 30 0 t 30 0 t 30 0" fill="none" stroke="#b9860f" stroke-width="2.5"/>
+  <text x="180" y="235" font-size="14" fill="#b9860f" font-weight="700">電圧がふらつく(不定)</text>
+
+  <text x="260" y="280" text-anchor="middle" font-size="13" fill="#586070">シェルの表示:</text>
+  <text x="260" y="300" text-anchor="middle" font-size="13" font-family="ui-monospace, Consolas, monospace" fill="#1b1e25">INPUT: 0, 1, 0, 0, 1 ...</text>
+
+  <text x="260" y="325" text-anchor="middle" font-size="14" font-weight="700" fill="#1b1e25">配線図①「プル無し」の状態</text>
+</svg>
