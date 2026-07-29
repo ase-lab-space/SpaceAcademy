@@ -9,7 +9,7 @@
 - `02_uart_topology.svg` — TX/RXクロス配線・GND共有の概念図
 - `03_async_analogy.svg` — スタートビット(せーの)+ボーレート(同じテンポ)で同期する非同期通信のたとえ図。I2C/SPIに触れずに理解できる説明にした
 - `04_serial_vs_parallel.svg` — シリアル通信とパラレル通信の違いの比較図
-- `05_clock_drift_and_midbit_sampling.svg` — クロックのわずかな速度差がフレーム後半で誤読リスクになること、UARTがビット中央でサンプリングして対策していることの図。宿題(問い2)の指導者用解答にも使用
+- `05_clock_drift_and_midbit_sampling.svg` — クロックのわずかな速度差がフレーム後半で誤読リスクになること、UARTがビット中央でサンプリングして対策していることの図。**本編には掲載せず、宿題(問い2)の指導者用解答(`instructor-notes/06_解答.md`)専用**として使用(答えを直接示す図のため、学生向け本文には出さない方針)
 - `gen_uart_frame.py` — `01_uart_frame_waveform.png`を生成したPythonスクリプト。再実行・改変可能
 
 ## 未取得(当日撮影して差し替えてください)
