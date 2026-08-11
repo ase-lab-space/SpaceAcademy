@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif">
+  <rect x="0" y="0" width="640" height="320" fill="#ffffff"/>
+  <text x="320" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1e25">SPIの通信イメージ:クロックに合わせて同時にやり取りする</text>
+
+  <!-- CS line -->
+  <text x="50" y="66" text-anchor="end" font-size="12" font-weight="700" fill="#b23a3a">CS</text>
+  <polyline points="70,55 140,55 140,75 560,75 560,55 600,55" fill="none" stroke="#b23a3a" stroke-width="2.2"/>
+  <text x="350" y="90" text-anchor="middle" font-size="10.5" fill="#b23a3a">CSがLowの間だけ、この通信相手が選ばれている</text>
+
+  <!-- SCK line -->
+  <text x="50" y="126" text-anchor="end" font-size="12" font-weight="700" fill="#1b1e25">SCK</text>
+  <polyline points="140,135 140,115 180,115 180,135 220,135 220,115 260,115 260,135 300,135 300,115 340,115 340,135 380,135 380,115 420,115 420,135 460,135 460,115 500,115 500,135" fill="none" stroke="#1b1e25" stroke-width="2"/>
+
+  <!-- MOSI line -->
+  <text x="50" y="176" text-anchor="end" font-size="12" font-weight="700" fill="#178a55">MOSI</text>
+  <polyline points="140,185 180,185 180,165 260,165 260,185 300,185 300,165 460,165 460,185 500,185" fill="none" stroke="#178a55" stroke-width="2.2"/>
+  <text x="320" y="205" text-anchor="middle" font-size="10.5" fill="#178a55">Pico → BME280(コマンドやレジスタ番号)</text>
+
+  <!-- MISO line -->
+  <text x="50" y="236" text-anchor="end" font-size="12" font-weight="700" fill="#3860c6">MISO</text>
+  <polyline points="140,225 220,225 220,245 260,245 260,225 380,225 380,245 420,245 420,225 500,225" fill="none" stroke="#3860c6" stroke-width="2.2"/>
+  <text x="320" y="265" text-anchor="middle" font-size="10.5" fill="#3860c6">BME280 → Pico(レジスタの値)</text>
+
+  <line x1="140" y1="280" x2="500" y2="280" stroke="#d8dde4" stroke-width="1"/>
+  <text x="320" y="300" text-anchor="middle" font-size="12" fill="#1b1e25" font-weight="700">クロック(SCK)が1回振れるたびに、MOSIとMISOが同時に1bitずつ入れ替わる(全二重)</text>
+</svg>

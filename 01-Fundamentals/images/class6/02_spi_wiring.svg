@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 340" font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif">
+  <rect x="0" y="0" width="620" height="340" fill="#ffffff"/>
+  <text x="310" y="26" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1e25">SPI配線:4本の信号線＋電源2本</text>
+
+  <!-- Pico W -->
+  <rect x="40" y="60" width="150" height="220" rx="8" fill="#e4ebfb" stroke="#3860c6" stroke-width="2.5"/>
+  <text x="115" y="85" text-anchor="middle" font-size="14" font-weight="700" fill="#3860c6">Pico W</text>
+  <circle cx="190" cy="110" r="4" fill="#1b1e25"/><text x="175" y="107" text-anchor="end" font-size="12" font-weight="700">GP17</text>
+  <circle cx="190" cy="145" r="4" fill="#1b1e25"/><text x="175" y="142" text-anchor="end" font-size="12" font-weight="700">GP18</text>
+  <circle cx="190" cy="180" r="4" fill="#1b1e25"/><text x="175" y="177" text-anchor="end" font-size="12" font-weight="700">GP19</text>
+  <circle cx="190" cy="215" r="4" fill="#1b1e25"/><text x="175" y="212" text-anchor="end" font-size="12" font-weight="700">GP16</text>
+  <circle cx="190" cy="250" r="4" fill="#1b1e25"/><text x="175" y="247" text-anchor="end" font-size="12" font-weight="700">3V3/GND</text>
+
+  <!-- BME280 module -->
+  <rect x="430" y="60" width="150" height="220" rx="8" fill="#e0f2e9" stroke="#178a55" stroke-width="2.5"/>
+  <text x="505" y="85" text-anchor="middle" font-size="14" font-weight="700" fill="#178a55">BME280モジュール</text>
+  <circle cx="430" cy="110" r="4" fill="#1b1e25"/><text x="445" y="107" font-size="12" font-weight="700">CSB</text>
+  <circle cx="430" cy="145" r="4" fill="#1b1e25"/><text x="445" y="142" font-size="12" font-weight="700">SCK</text>
+  <circle cx="430" cy="180" r="4" fill="#1b1e25"/><text x="445" y="177" font-size="12" font-weight="700">SDI</text>
+  <circle cx="430" cy="215" r="4" fill="#1b1e25"/><text x="445" y="212" font-size="12" font-weight="700">SDO</text>
+  <circle cx="430" cy="250" r="4" fill="#1b1e25"/><text x="445" y="247" font-size="12" font-weight="700">VDD/GND</text>
+
+  <line x1="190" y1="110" x2="430" y2="110" stroke="#b23a3a" stroke-width="2.2"/>
+  <text x="310" y="103" text-anchor="middle" font-size="11" fill="#b23a3a" font-weight="700">CS(チップ選択)</text>
+  <line x1="190" y1="145" x2="430" y2="145" stroke="#1b1e25" stroke-width="2.2"/>
+  <text x="310" y="138" text-anchor="middle" font-size="11" fill="#1b1e25" font-weight="700">SCK(クロック)</text>
+  <line x1="190" y1="180" x2="430" y2="180" stroke="#178a55" stroke-width="2.2"/>
+  <text x="310" y="173" text-anchor="middle" font-size="11" fill="#178a55" font-weight="700">MOSI→SDI</text>
+  <line x1="190" y1="215" x2="430" y2="215" stroke="#3860c6" stroke-width="2.2"/>
+  <text x="310" y="208" text-anchor="middle" font-size="11" fill="#3860c6" font-weight="700">SDO→MISO</text>
+  <line x1="190" y1="250" x2="430" y2="250" stroke="#586070" stroke-width="2.2" stroke-dasharray="6 4"/>
+  <text x="310" y="243" text-anchor="middle" font-size="11" fill="#586070" font-weight="700">電源・GND</text>
+
+  <text x="310" y="315" text-anchor="middle" font-size="12" fill="#1b1e25">SDI = マスターからの入力(MOSI)、SDO = マスターへの出力(MISO)。名前がPico側と逆になる点に注意</text>
+</svg>
