@@ -46,24 +46,26 @@
 
 ### ライブラリを用意する
 
-MicroPython標準にはBME280用のライブラリが含まれていないため、SPI・I2C両方に対応したライブラリを追加します(例:`teddokano/BME280_MicroPython`など)。Thonnyのパッケージ管理機能、または`.py`ファイルを直接Pico Wへ書き込む方法でインストールしてください。
+MicroPython標準にはBME280用のライブラリが含まれていないため、[`sample-code/bme280.py`](./sample-code/bme280.py)を追加します。このファイルはSPI・I2C両対応の教育向けドライバとして、SpaceAcademyが独自に用意したものです。
 
-> ⚠️ ライブラリごとにクラス名や引数の書き方が異なることがあります。以下のコードは代表的な使い方の例です。**インストールしたライブラリのREADME/サンプルコードと照らし合わせて、必要に応じて書き換えてください。**
+Thonnyでファイルを開き、**ファイル→名前をつけて保存→Raspberry Pi Pico**を選び、ファイル名を`bme280.py`としてPico W本体に保存してください(`main.py`と同じ場所です)。以後、`import bme280`と書くだけで使えるようになります。
+
+> 💡 このライブラリの中身は、あえて難しい最適化をせず「レジスタを読み書きしている処理がそのまま追える」ように書かれています。4.2〜4.3節の内容が分かってきたら、時間のあるときに`bme280.py`の中身も覗いてみてください。今日のところは、中身を読めなくても問題ありません。
 
 ### コードを書き込む
 
 ```py
 from machine import Pin, SPI
-from bme280 import BME280  # インストールしたライブラリ名に合わせる
+import bme280
 import time
 
 cs = Pin(17, Pin.OUT)
 spi = SPI(0, baudrate=1_000_000, sck=Pin(18), mosi=Pin(19), miso=Pin(16))
 
-sensor = BME280(spi=spi, cs=cs)
+sensor = bme280.BME280(spi=spi, cs=cs)
 
 while True:
-    print(sensor.values)  # (気温, 気圧, 湿度) のようなタプルが返る想定
+    print(sensor.values)  # (気温[℃], 気圧[hPa], 湿度[%]) のタプルが返る
     time.sleep(1)
 ```
 
@@ -175,12 +177,12 @@ print("ID:", hex(result[0]))
 
 ```py
 from machine import Pin, I2C
-from bme280 import BME280  # インストールしたライブラリ名に合わせる
+import bme280
 import time
 
 i2c = I2C(0, sda=Pin(0), scl=Pin(1), freq=100_000)
 
-sensor = BME280(i2c=i2c, address=0x76)  # SDOをGNDに接続している場合は0x76
+sensor = bme280.BME280(i2c=i2c, address=0x76)  # SDOをGNDに接続している場合は0x76
 
 while True:
     print(sensor.values)
@@ -239,19 +241,18 @@ SPIと違って**同じ2本の線に何個でも機器をぶら下げられる**
 
 ```py
 from machine import Pin, I2C
-from bme280 import BME280
+import bme280
 import time
 
 i2c = I2C(0, sda=Pin(0), scl=Pin(1), freq=100_000)
-sensor = BME280(i2c=i2c, address=0x76)
+sensor = bme280.BME280(i2c=i2c, address=0x76)
 
 samples = []
 print("60秒間、1秒おきに気温を記録します")
 
 for i in range(60):
-    temp = sensor.values[0]        # ライブラリによっては"25.34C"のような文字列で返ることがある
-    temp = float(str(temp).rstrip("C"))  # 末尾の単位記号を取り除いて数値に変換
-    print(temp)                    # ← この数値がプロッターに表示される
+    temp = sensor.values[0]  # (気温, 気圧, 湿度) の先頭=気温[℃]
+    print(temp)               # ← この数値がプロッターに表示される
     samples.append(temp)
     time.sleep(1)
 
