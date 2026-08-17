@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif">
+  <rect x="0" y="0" width="760" height="420" fill="#ffffff"/>
+  <text x="380" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1e25">2つのファイルに分けて使う</text>
+
+  <!-- main.py file -->
+  <g>
+    <path d="M 60 60 h 260 a 8 8 0 0 1 8 8 v 300 a 8 8 0 0 1 -8 8 h -260 a 8 8 0 0 1 -8 -8 v -300 a 8 8 0 0 1 8 -8 z" fill="#e4ebfb" stroke="#3860c6" stroke-width="2.5"/>
+    <text x="190" y="90" text-anchor="middle" font-size="13.5" font-weight="700" fill="#3860c6" font-family="monospace">main.py</text>
+    <rect x="80" y="105" width="220" height="130" rx="5" fill="#1b1e25"/>
+    <text x="95" y="128" font-size="12.5" font-family="monospace" fill="#8fc4f0">import led_utils</text>
+    <text x="95" y="154" font-size="12.5" font-family="monospace" fill="#e8eaed"></text>
+    <text x="95" y="180" font-size="12.5" font-family="monospace" fill="#7fd39c">led_utils.blink_led(</text>
+    <text x="95" y="206" font-size="12.5" font-family="monospace" fill="#7fd39c">&#160;&#160;15, 3)</text>
+    <text x="190" y="255" text-anchor="middle" font-size="11" fill="#3860c6">「実行するプログラム」</text>
+    <text x="190" y="271" text-anchor="middle" font-size="11" fill="#3860c6">Pico起動時に走るのはこっち</text>
+  </g>
+
+  <!-- led_utils.py file -->
+  <g>
+    <path d="M 440 60 h 260 a 8 8 0 0 1 8 8 v 300 a 8 8 0 0 1 -8 8 h -260 a 8 8 0 0 1 -8 -8 v -300 a 8 8 0 0 1 8 -8 z" fill="#e0f2e9" stroke="#178a55" stroke-width="2.5"/>
+    <text x="570" y="90" text-anchor="middle" font-size="13.5" font-weight="700" fill="#178a55" font-family="monospace">led_utils.py</text>
+    <rect x="460" y="105" width="220" height="130" rx="5" fill="#1b1e25"/>
+    <text x="475" y="128" font-size="11.5" font-family="monospace" fill="#8fc4f0">from machine import Pin</text>
+    <text x="475" y="148" font-size="11.5" font-family="monospace" fill="#8fc4f0">import time</text>
+    <text x="475" y="174" font-size="11.5" font-family="monospace" fill="#e8eaed">def blink_led(pin_num, times):</text>
+    <text x="490" y="194" font-size="11.5" font-family="monospace" fill="#e8eaed">led = Pin(pin_num, ...)</text>
+    <text x="490" y="214" font-size="11.5" font-family="monospace" fill="#e8eaed">for i in range(times): …</text>
+    <text x="570" y="255" text-anchor="middle" font-size="11" fill="#178a55">「関数の置き場」</text>
+    <text x="570" y="271" text-anchor="middle" font-size="11" fill="#178a55">これだけでは自動で実行されない</text>
+  </g>
+
+  <!-- import arrow -->
+  <path d="M 320 128 L 440 128" stroke="#3860c6" stroke-width="2.5" fill="none" marker-end="url(#m1)"/>
+  <text x="380" y="118" text-anchor="middle" font-size="11" fill="#3860c6">① import で</text>
+  <text x="380" y="150" text-anchor="middle" font-size="11" fill="#3860c6">読み込む</text>
+
+  <!-- call arrow -->
+  <path d="M 320 190 L 440 190" stroke="#178a55" stroke-width="2.5" fill="none" marker-end="url(#m2)"/>
+  <text x="380" y="180" text-anchor="middle" font-size="11" fill="#178a55">② 名前.関数名()で</text>
+  <text x="380" y="212" text-anchor="middle" font-size="11" fill="#178a55">呼び出す</text>
+
+  <defs>
+    <marker id="m1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#3860c6"/></marker>
+    <marker id="m2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#178a55"/></marker>
+  </defs>
+
+  <!-- bottom note -->
+  <rect x="80" y="345" width="600" height="55" rx="6" fill="#f1f3f6"/>
+  <text x="380" y="367" text-anchor="middle" font-size="12" fill="#586070">2つのファイルは、どちらも同じPico Wの中(main.pyと同じ場所)に保存する</text>
+  <text x="380" y="386" text-anchor="middle" font-size="12" fill="#586070">これで、他のプログラムからも led_utils を import するだけで使い回せる</text>
+</svg>

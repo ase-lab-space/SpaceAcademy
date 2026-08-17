@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif">
+  <rect x="0" y="0" width="760" height="460" fill="#ffffff"/>
+  <text x="380" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1e25">他人のライブラリ(picozero)を手に入れる2つの方法</text>
+
+  <!-- top: picozero source -->
+  <rect x="280" y="45" width="200" height="50" rx="8" fill="#ebe4f8" stroke="#6a4dbd" stroke-width="2.5"/>
+  <text x="380" y="66" text-anchor="middle" font-size="12.5" font-weight="700" fill="#6a4dbd">picozero</text>
+  <text x="380" y="82" text-anchor="middle" font-size="10.5" fill="#6a4dbd">(他の人が作ったライブラリ)</text>
+
+  <path d="M 340 95 L 200 130" stroke="#6a4dbd" stroke-width="2" fill="none"/>
+  <path d="M 420 95 L 560 130" stroke="#6a4dbd" stroke-width="2" fill="none"/>
+
+  <!-- Path A: manual download -->
+  <g>
+    <rect x="60" y="130" width="280" height="60" rx="8" fill="#e0f2e9" stroke="#178a55" stroke-width="2"/>
+    <text x="200" y="153" text-anchor="middle" font-size="12" font-weight="700" fill="#178a55">A. GitHubから手動ダウンロード</text>
+    <text x="200" y="172" text-anchor="middle" font-size="10.5" fill="#178a55">picozero.pyをPCに保存(前回のbme280.pyと同じ)</text>
+
+    <path d="M 200 190 L 200 225" stroke="#178a55" stroke-width="2.2" fill="none" marker-end="url(#ar)"/>
+
+    <rect x="60" y="228" width="280" height="60" rx="8" fill="#e0f2e9" stroke="#178a55" stroke-width="2"/>
+    <text x="200" y="251" text-anchor="middle" font-size="12" font-weight="700" fill="#178a55">Thonny:名前をつけて保存</text>
+    <text x="200" y="270" text-anchor="middle" font-size="10.5" fill="#178a55">保存先を「Raspberry Pi Pico」に指定</text>
+  </g>
+
+  <!-- Path B: Thonny package manager -->
+  <g>
+    <rect x="420" y="130" width="280" height="60" rx="8" fill="#e4ebfb" stroke="#3860c6" stroke-width="2"/>
+    <text x="560" y="153" text-anchor="middle" font-size="12" font-weight="700" fill="#3860c6">B. Thonnyパッケージマネージャ</text>
+    <text x="560" y="172" text-anchor="middle" font-size="10.5" fill="#3860c6">ツール→パッケージの管理→検索→インストール</text>
+
+    <path d="M 560 190 L 560 225" stroke="#3860c6" stroke-width="2.2" fill="none" marker-end="url(#ar)"/>
+
+    <rect x="420" y="228" width="280" height="60" rx="8" fill="#e4ebfb" stroke="#3860c6" stroke-width="2"/>
+    <text x="560" y="248" text-anchor="middle" font-size="12" font-weight="700" fill="#3860c6">PCがPyPIから自動で取得</text>
+    <text x="560" y="266" text-anchor="middle" font-size="10.5" fill="#3860c6">→ USBケーブル越しにPicoへ書き込み</text>
+    <text x="560" y="282" text-anchor="middle" font-size="10.5" fill="#3860c6">(Pico自体のWi-Fi設定は不要)</text>
+  </g>
+
+  <!-- converge -->
+  <path d="M 200 288 L 200 330 L 380 330" stroke="#586070" stroke-width="2.2" fill="none"/>
+  <path d="M 560 288 L 560 330 L 380 330" stroke="#586070" stroke-width="2.2" fill="none" marker-end="url(#ar2)"/>
+  <path d="M 380 330 L 380 355" stroke="#586070" stroke-width="2.2" fill="none" marker-end="url(#ar2)"/>
+
+  <!-- result -->
+  <rect x="220" y="358" width="320" height="70" rx="8" fill="#f1f3f6" stroke="#1b1e25" stroke-width="1.5"/>
+  <text x="380" y="383" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1b1e25">Pico Wの中に picozero.py が置かれる</text>
+  <text x="380" y="402" text-anchor="middle" font-size="11" fill="#586070">どちらの方法でも、たどり着く場所は同じ</text>
+  <text x="380" y="417" text-anchor="middle" font-size="11" fill="#586070">以後 import picozero と書けば使える</text>
+
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#586070"/></marker>
+    <marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#586070"/></marker>
+  </defs>
+</svg>

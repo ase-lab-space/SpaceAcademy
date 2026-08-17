@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 480" font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif">
+  <rect x="0" y="0" width="760" height="480" fill="#ffffff"/>
+  <text x="380" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1e25">関数定義の各部分</text>
+
+  <!-- code block -->
+  <rect x="60" y="50" width="420" height="170" rx="8" fill="#1b1e25"/>
+  <text x="80" y="80" font-size="15" font-family="monospace" fill="#e8eaed">def <tspan fill="#7fd39c">blink_led</tspan>(<tspan fill="#8fc4f0">times</tspan>):</text>
+  <text x="100" y="106" font-size="15" font-family="monospace" fill="#e8eaed">for i in range(<tspan fill="#8fc4f0">times</tspan>):</text>
+  <text x="120" y="132" font-size="15" font-family="monospace" fill="#e8eaed">led.value(1)</text>
+  <text x="120" y="158" font-size="15" font-family="monospace" fill="#e8eaed">time.sleep(0.3)</text>
+  <text x="120" y="184" font-size="15" font-family="monospace" fill="#e8eaed">led.value(0)</text>
+  <text x="120" y="210" font-size="15" font-family="monospace" fill="#e8eaed">time.sleep(0.3)</text>
+
+  <!-- callouts -->
+  <!-- def -->
+  <path d="M 85 60 L 85 250 L 500 250" stroke="#e0a52c" stroke-width="1.8" fill="none" marker-end="url(#dot)"/>
+  <rect x="502" y="235" width="200" height="34" rx="5" fill="#fdf3e0" stroke="#e0a52c" stroke-width="1.5"/>
+  <text x="512" y="257" font-size="11.5" fill="#8a6a12">「def」= 関数を定義する合言葉</text>
+
+  <!-- function name -->
+  <path d="M 155 60 L 155 290 L 500 290" stroke="#178a55" stroke-width="1.8" fill="none" marker-end="url(#dot)"/>
+  <rect x="502" y="275" width="230" height="34" rx="5" fill="#e0f2e9" stroke="#178a55" stroke-width="1.5"/>
+  <text x="512" y="297" font-size="11.5" fill="#178a55">関数の名前(自分で決めてよい)</text>
+
+  <!-- parameter -->
+  <path d="M 245 60 L 245 330 L 500 330" stroke="#3860c6" stroke-width="1.8" fill="none" marker-end="url(#dot)"/>
+  <rect x="502" y="315" width="240" height="46" rx="5" fill="#e4ebfb" stroke="#3860c6" stroke-width="1.5"/>
+  <text x="512" y="333" font-size="11.5" fill="#3860c6">引数(パラメータ)</text>
+  <text x="512" y="349" font-size="11.5" fill="#3860c6">呼び出すときに渡す値の受け皿</text>
+
+  <!-- colon -->
+  <path d="M 280 60 L 280 375 L 500 375" stroke="#6a4dbd" stroke-width="1.8" fill="none" marker-end="url(#dot)"/>
+  <rect x="502" y="360" width="240" height="34" rx="5" fill="#ebe4f8" stroke="#6a4dbd" stroke-width="1.5"/>
+  <text x="512" y="382" font-size="11.5" fill="#6a4dbd">「:」以降がインデントされた範囲=中身</text>
+
+  <!-- body -->
+  <path d="M 400 145 L 400 410 L 500 410" stroke="#c1443d" stroke-width="1.8" fill="none" marker-end="url(#dot)"/>
+  <rect x="502" y="395" width="240" height="46" rx="5" fill="#fbeaea" stroke="#c1443d" stroke-width="1.5"/>
+  <text x="512" y="413" font-size="11.5" fill="#c1443d">関数の中身(処理)</text>
+  <text x="512" y="429" font-size="11.5" fill="#c1443d">呼び出されるたびに実行される</text>
+
+  <defs>
+    <marker id="dot" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5"><circle cx="5" cy="5" r="4" fill="#586070"/></marker>
+  </defs>
+
+  <!-- calling side -->
+  <rect x="60" y="245" width="0" height="0" fill="none"/>
+  <text x="130" y="465" text-anchor="start" font-size="11" fill="#586070" font-family="monospace"></text>
+</svg>

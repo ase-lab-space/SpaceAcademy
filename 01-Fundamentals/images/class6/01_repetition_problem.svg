@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif">
+  <rect x="0" y="0" width="720" height="420" fill="#ffffff"/>
+  <text x="360" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1e25">同じプログラムの中に、同じコードが何度も出てくる</text>
+
+  <!-- three cards -->
+  <g>
+    <!-- card 1 -->
+    <rect x="40" y="55" width="200" height="150" rx="8" fill="#f8f9fb" stroke="#c7ccd4" stroke-width="1.5"/>
+    <text x="140" y="76" text-anchor="middle" font-size="11.5" font-weight="700" fill="#586070">① 起動したとき</text>
+    <rect x="55" y="86" width="170" height="106" rx="4" fill="#fdf3e0" stroke="#e0a52c" stroke-width="1.5"/>
+    <text x="65" y="103" font-size="10" font-family="monospace" fill="#8a6a12">led.value(1)</text>
+    <text x="65" y="119" font-size="10" font-family="monospace" fill="#8a6a12">time.sleep(0.3)</text>
+    <text x="65" y="135" font-size="10" font-family="monospace" fill="#8a6a12">led.value(0)</text>
+    <text x="65" y="151" font-size="10" font-family="monospace" fill="#8a6a12">time.sleep(0.3)</text>
+    <text x="65" y="167" font-size="10" font-family="monospace" fill="#8a6a12">led.value(1)</text>
+    <text x="65" y="183" font-size="10" font-family="monospace" fill="#8a6a12">…(あと4行)</text>
+  </g>
+
+  <g>
+    <!-- card 2 -->
+    <rect x="260" y="55" width="200" height="150" rx="8" fill="#f8f9fb" stroke="#c7ccd4" stroke-width="1.5"/>
+    <text x="360" y="76" text-anchor="middle" font-size="11.5" font-weight="700" fill="#586070">② ボタンを押したとき</text>
+    <rect x="275" y="86" width="170" height="106" rx="4" fill="#fdf3e0" stroke="#e0a52c" stroke-width="1.5"/>
+    <text x="285" y="103" font-size="10" font-family="monospace" fill="#8a6a12">led.value(1)</text>
+    <text x="285" y="119" font-size="10" font-family="monospace" fill="#8a6a12">time.sleep(0.3)</text>
+    <text x="285" y="135" font-size="10" font-family="monospace" fill="#8a6a12">led.value(0)</text>
+    <text x="285" y="151" font-size="10" font-family="monospace" fill="#8a6a12">time.sleep(0.3)</text>
+    <text x="285" y="167" font-size="10" font-family="monospace" fill="#8a6a12">led.value(1)</text>
+    <text x="285" y="183" font-size="10" font-family="monospace" fill="#8a6a12">…(あと4行)</text>
+  </g>
+
+  <g>
+    <!-- card 3 -->
+    <rect x="480" y="55" width="200" height="150" rx="8" fill="#f8f9fb" stroke="#c7ccd4" stroke-width="1.5"/>
+    <text x="580" y="76" text-anchor="middle" font-size="11.5" font-weight="700" fill="#586070">③ 1秒ごとのループの中</text>
+    <rect x="495" y="86" width="170" height="106" rx="4" fill="#fdf3e0" stroke="#e0a52c" stroke-width="1.5"/>
+    <text x="505" y="103" font-size="10" font-family="monospace" fill="#8a6a12">led.value(1)</text>
+    <text x="505" y="119" font-size="10" font-family="monospace" fill="#8a6a12">time.sleep(0.3)</text>
+    <text x="505" y="135" font-size="10" font-family="monospace" fill="#8a6a12">led.value(0)</text>
+    <text x="505" y="151" font-size="10" font-family="monospace" fill="#8a6a12">time.sleep(0.3)</text>
+    <text x="505" y="167" font-size="10" font-family="monospace" fill="#8a6a12">led.value(1)</text>
+    <text x="505" y="183" font-size="10" font-family="monospace" fill="#8a6a12">…(あと4行)</text>
+  </g>
+
+  <text x="360" y="228" text-anchor="middle" font-size="12" fill="#8a6a12" font-weight="700">オレンジ色の部分、3か所とも「まったく同じ処理」</text>
+
+  <!-- pain point callout -->
+  <path d="M 90 260 h 540 a 10 10 0 0 1 10 10 v 60 a 10 10 0 0 1 -10 10 h -540 a 10 10 0 0 1 -10 -10 v -60 a 10 10 0 0 1 10 -10 z" fill="#fbeaea" stroke="#c1443d" stroke-width="2"/>
+  <text x="360" y="288" text-anchor="middle" font-size="12.5" font-weight="700" fill="#c1443d">もし「点滅の間隔を0.3秒→0.5秒に変えたい」と思ったら?</text>
+  <text x="360" y="308" text-anchor="middle" font-size="12" fill="#c1443d">3か所すべてを書き換える必要がある。1か所直し忘れたらバグの原因に…</text>
+
+  <!-- arrow down to solution teaser -->
+  <path d="M 360 340 L 360 375" stroke="#178a55" stroke-width="3" fill="none" marker-end="url(#down)"/>
+  <defs>
+    <marker id="down" viewBox="0 0 10 10" refX="5" refY="8" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 0L5 10z" fill="#178a55"/></marker>
+  </defs>
+  <text x="360" y="400" text-anchor="middle" font-size="13" font-weight="700" fill="#178a55">1か所にまとめて、名前をつけておけたら…?</text>
+</svg>
