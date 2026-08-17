@@ -1,6 +1,6 @@
-# 画像置き場(電子工作 第4回:I2CとSPIでセンサと話す)
+# 画像置き場(電子工作 第5回:I2CとSPIでセンサと話す)
 
-`06_I2CとSPIでセンサと話す.md` で使用する画像です。
+`07_I2CとSPIでセンサと話す.md` で使用する画像です。
 
 ## 配置済み(そのまま使えます)
 
@@ -14,10 +14,10 @@
 - `11_bit_shift_assembly.svg` — 3つのレジスタ(temp_msb/lsb/xlsb)からビットシフトで1つの値を組み立てる様子の直感図。自作。社内スライド資料「マイコン編.pdf」p.49のレイアウト(空のビットマス+シフト矢印+組み立て後の枠)を参考にデザインを揃えた。p.50のコード表現は今回意図的に含めていない
 - `12_spi_topology_ref.svg` — CanSat_Fundamentals(`teach_02_Hardware/02_センサの信号.md`)で参照されているSPIトポロジー図(Analog Devices "Introduction to SPI Interface"由来)。直リンク先(analog.com)が本環境から接続不可だったため、Wayback Machine経由で取得しダウンロード・自己ホスト
 - `13_i2c_topology_ref.png` — 同じくCanSat_Fundamentalsで参照されているI2Cトポロジー図(macnica.co.jp由来)。ダウンロードして自己ホスト
+- `07_spi_result.png` — SPIで気温・気圧・湿度が表示された実行結果。KAZUKI20が撮影・追加
+- `14_sensor_noise_stats.png` — Plotterのグラフ+平均値・分散・標準偏差の出力結果。KAZUKI20が撮影・追加
 
 ## 未取得(当日撮影して差し替えてください)
 
-- `07_spi_result.png`(SPIで気温・気圧・湿度が表示された結果)
 - `08_i2c_result.png`(I2Cで気温・気圧・湿度が表示された結果)
 - `09_challenge_result.png`(確認課題の実施結果)
-- `14_sensor_noise_stats.png`(Plotterのグラフ+平均値・分散・標準偏差の出力結果)
