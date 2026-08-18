@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif">
+  <rect x="0" y="0" width="720" height="300" fill="#ffffff"/>
+  <text x="360" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1e25">宛先IPアドレスを間違えると、メッセージは届かない</text>
+
+  <!-- Pico W -->
+  <rect x="40" y="110" width="130" height="70" rx="8" fill="#e0f2e9" stroke="#178a55" stroke-width="2.5"/>
+  <text x="105" y="150" text-anchor="middle" font-size="13" font-weight="700" fill="#178a55">Pico W</text>
+  <text x="105" y="168" text-anchor="middle" font-size="10" fill="#178a55">送信側</text>
+
+  <!-- wrong path -->
+  <path d="M 170 130 L 560 60" stroke="#c1443d" stroke-width="2.2" stroke-dasharray="6 4" fill="none" marker-end="url(#x1)"/>
+  <text x="365" y="75" text-anchor="middle" font-size="11" fill="#c1443d" font-family="monospace">宛先: 192.168.1.99 (適当な値)</text>
+
+  <!-- void icon -->
+  <g>
+    <circle cx="600" cy="55" r="30" fill="#fbeaea" stroke="#c1443d" stroke-width="2"/>
+    <text x="600" y="61" text-anchor="middle" font-size="20" fill="#c1443d">?</text>
+  </g>
+  <text x="600" y="100" text-anchor="middle" font-size="11" fill="#c1443d">誰もいない(そのアドレスの機器がない)</text>
+
+  <!-- PC (correct target, not reached) -->
+  <rect x="530" y="150" width="150" height="90" rx="8" fill="#e4ebfb" stroke="#3860c6" stroke-width="2.5"/>
+  <text x="605" y="185" text-anchor="middle" font-size="13" font-weight="700" fill="#3860c6">自分のPC</text>
+  <text x="605" y="203" text-anchor="middle" font-size="10.5" fill="#3860c6">(本当はここで</text>
+  <text x="605" y="219" text-anchor="middle" font-size="10.5" fill="#3860c6">待ち受けていた)</text>
+
+  <!-- callout -->
+  <rect x="60" y="220" width="600" height="60" rx="8" fill="#f1f3f6"/>
+  <text x="360" y="245" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1b1e25">重要:UDPはエラーが出ない</text>
+  <text x="360" y="264" text-anchor="middle" font-size="11.5" fill="#586070">「送信は成功」した(Pico W側にエラーは出ない)のに、相手には何も届いていない、という状態になる</text>
+
+  <defs>
+    <marker id="x1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#c1443d"/></marker>
+  </defs>
+</svg>

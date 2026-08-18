@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif">
+  <rect x="0" y="0" width="720" height="420" fill="#ffffff"/>
+  <text x="360" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1e25">UDP と TCP、送り方の違い</text>
+
+  <!-- UDP column -->
+  <g>
+    <rect x="40" y="55" width="300" height="330" rx="10" fill="#fdf3e0" stroke="#e0a52c" stroke-width="2.5"/>
+    <text x="190" y="85" text-anchor="middle" font-size="16" font-weight="700" fill="#8a6a12">UDP</text>
+    <text x="190" y="103" text-anchor="middle" font-size="10.5" fill="#8a6a12">(手紙をポストに投げ込むだけ)</text>
+
+    <circle cx="90" cy="140" r="18" fill="#e0a52c"/>
+    <text x="90" y="146" text-anchor="middle" font-size="14" fill="#ffffff">送</text>
+    <path d="M 108 140 L 260 140" stroke="#e0a52c" stroke-width="2.5" fill="none" marker-end="url(#uu)"/>
+    <circle cx="280" cy="140" r="18" fill="#e0a52c" opacity="0.5"/>
+    <text x="280" y="146" text-anchor="middle" font-size="14" fill="#ffffff">受</text>
+
+    <text x="190" y="180" text-anchor="middle" font-size="11.5" fill="#8a6a12">ハンドシェイクなし、いきなり送る</text>
+
+    <g font-size="11.5" fill="#8a6a12">
+      <text x="60" y="215">✓ 速い(準備なし)</text>
+      <text x="60" y="240">✓ 送信側は相手の応答を待たない</text>
+      <text x="60" y="265">✗ 届いたか分からない</text>
+      <text x="60" y="290">✗ 順番が入れ替わることがある</text>
+      <text x="60" y="315">✗ 一部だけ届く(欠落)ことがある</text>
+    </g>
+    <rect x="60" y="335" width="260" height="34" rx="5" fill="#ffffff" stroke="#e0a52c" stroke-width="1.2"/>
+    <text x="190" y="356" text-anchor="middle" font-size="10.5" fill="#8a6a12">向いてる場面:多少欠けても良い速報</text>
+  </g>
+
+  <!-- TCP column -->
+  <g>
+    <rect x="380" y="55" width="300" height="330" rx="10" fill="#e0f2e9" stroke="#178a55" stroke-width="2.5"/>
+    <text x="530" y="85" text-anchor="middle" font-size="16" font-weight="700" fill="#178a55">TCP</text>
+    <text x="530" y="103" text-anchor="middle" font-size="10.5" fill="#178a55">(電話で「もしもし」から始める)</text>
+
+    <circle cx="430" cy="140" r="18" fill="#178a55"/>
+    <text x="430" y="146" text-anchor="middle" font-size="14" fill="#ffffff">送</text>
+    <path d="M 448 133 L 600 133" stroke="#178a55" stroke-width="2" fill="none" marker-end="url(#tt)"/>
+    <path d="M 600 147 L 448 147" stroke="#178a55" stroke-width="1.4" stroke-dasharray="3 3" fill="none" marker-end="url(#tt)"/>
+    <circle cx="620" cy="140" r="18" fill="#178a55"/>
+    <text x="620" y="146" text-anchor="middle" font-size="14" fill="#ffffff">受</text>
+
+    <text x="530" y="180" text-anchor="middle" font-size="11.5" fill="#178a55">3回のハンドシェイク後、確認しながら送る</text>
+
+    <g font-size="11.5" fill="#178a55">
+      <text x="400" y="215">✓ 届いたことが保証される</text>
+      <text x="400" y="240">✓ 順番も保証される</text>
+      <text x="400" y="265">✓ 欠けたら自動で再送される</text>
+      <text x="400" y="290">✗ 準備(ハンドシェイク)に時間がかかる</text>
+      <text x="400" y="315">✗ 確認のやり取りの分、遅くなりがち</text>
+    </g>
+    <rect x="400" y="335" width="260" height="34" rx="5" fill="#ffffff" stroke="#178a55" stroke-width="1.2"/>
+    <text x="530" y="356" text-anchor="middle" font-size="10.5" fill="#178a55">向いてる場面:1byteも欠けたら困るデータ</text>
+  </g>
+
+  <defs>
+    <marker id="uu" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e0a52c"/></marker>
+    <marker id="tt" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#178a55"/></marker>
+  </defs>
+
+  <text x="360" y="405" text-anchor="middle" font-size="12" fill="#586070">CanSatの通信でも、この2つの得意・不得意を使い分けます</text>
+</svg>

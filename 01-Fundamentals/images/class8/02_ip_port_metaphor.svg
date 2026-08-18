@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif">
+  <rect x="0" y="0" width="720" height="380" fill="#ffffff"/>
+  <text x="360" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1e25">IPアドレス = 建物の住所、ポート番号 = 部屋番号</text>
+
+  <!-- building -->
+  <g>
+    <rect x="80" y="60" width="220" height="260" fill="#e4ebfb" stroke="#3860c6" stroke-width="2.5"/>
+    <text x="190" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="#3860c6" font-family="monospace">192.168.1.5</text>
+    <text x="190" y="108" text-anchor="middle" font-size="11" fill="#3860c6">(このPCのIPアドレス = 住所)</text>
+
+    <!-- rooms -->
+    <rect x="100" y="125" width="80" height="50" fill="#ffffff" stroke="#3860c6" stroke-width="1.5"/>
+    <text x="140" y="147" text-anchor="middle" font-size="10.5" fill="#3860c6">ポート</text>
+    <text x="140" y="163" text-anchor="middle" font-size="11" font-weight="700" fill="#3860c6">50000番</text>
+
+    <rect x="200" y="125" width="80" height="50" fill="#f1f3f6" stroke="#98a0ad" stroke-width="1.5"/>
+    <text x="240" y="147" text-anchor="middle" font-size="10.5" fill="#586070">ポート</text>
+    <text x="240" y="163" text-anchor="middle" font-size="11" fill="#586070">80番</text>
+
+    <rect x="100" y="185" width="80" height="50" fill="#f1f3f6" stroke="#98a0ad" stroke-width="1.5"/>
+    <text x="140" y="207" text-anchor="middle" font-size="10.5" fill="#586070">ポート</text>
+    <text x="140" y="223" text-anchor="middle" font-size="11" fill="#586070">443番</text>
+
+    <rect x="200" y="185" width="80" height="50" fill="#f1f3f6" stroke="#98a0ad" stroke-width="1.5"/>
+    <text x="240" y="207" text-anchor="middle" font-size="10.5" fill="#586070">ポート</text>
+    <text x="240" y="223" text-anchor="middle" font-size="11" fill="#586070">…</text>
+
+    <text x="190" y="270" text-anchor="middle" font-size="11" fill="#3860c6">「50000番の部屋で</text>
+    <text x="190" y="288" text-anchor="middle" font-size="11" fill="#3860c6">待ち受け中(bind)」の</text>
+    <text x="190" y="306" text-anchor="middle" font-size="11" fill="#3860c6">プログラムだけが受け取れる</text>
+  </g>
+
+  <!-- envelope arrow -->
+  <path d="M 450 200 L 320 155" stroke="#e0a52c" stroke-width="2.5" fill="none" marker-end="url(#e1)"/>
+
+  <!-- envelope -->
+  <g>
+    <rect x="440" y="150" width="160" height="90" rx="6" fill="#fdf3e0" stroke="#e0a52c" stroke-width="2"/>
+    <path d="M 440 150 L 520 205 L 600 150" stroke="#e0a52c" stroke-width="1.5" fill="none"/>
+    <text x="520" y="175" text-anchor="middle" font-size="10" fill="#8a6a12">宛先(住所+部屋番号)</text>
+    <text x="520" y="192" text-anchor="middle" font-size="11" font-weight="700" fill="#8a6a12" font-family="monospace">192.168.1.5 : 50000</text>
+    <text x="520" y="222" text-anchor="middle" font-size="10.5" fill="#8a6a12">中身:"メッセージ 0"</text>
+  </g>
+
+  <text x="520" y="270" text-anchor="middle" font-size="12" fill="#586070">sock.sendto(data, (IPアドレス, ポート番号))</text>
+  <text x="520" y="290" text-anchor="middle" font-size="12" fill="#586070">↑ 送るときは、必ず「住所」と「部屋番号」の両方を指定する</text>
+
+  <defs>
+    <marker id="e1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e0a52c"/></marker>
+  </defs>
+</svg>
