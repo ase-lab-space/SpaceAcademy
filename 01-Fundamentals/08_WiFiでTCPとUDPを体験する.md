@@ -94,7 +94,7 @@ while True:
 
 Thonnyの**ウィンドウを2つ**(ファイル→新しいウィンドウ)開き、片方で`udp_receiver.py`を実行(▶)、もう片方で`udp_sender.py`を実行します。**先に受信側を起動してから**送信側を起動してください。
 
-*(ここに2つのThonnyウィンドウで送受信している様子のスクリーンショットを貼る。`02_pc_udp_result.png`)*
+![受信側のシェルに、送られてきたメッセージが1秒おきに表示されている様子(赤枠部分)](images/class8/02_pc_udp_result.png)
 
 受信側のシェルに「`('127.0.0.1', ○○○○) から受信: メッセージ 0`」のように表示されれば成功です。1秒ごとに数字が増えていくのを確認しましょう。
 
@@ -182,7 +182,7 @@ Pico W側を実行してみましょう。Thonnyのシェルには「送信: Pic
 PC_IP = "192.168.○.○"  # 1節でipconfigして調べた、自分のPCの本当のIPアドレス
 ```
 
-*(ここにPico W→PCでUDPが届いている様子のスクリーンショットを貼る。`04_pico_udp_result.png`)*
+![Pico WからPCへUDPが届いている様子(赤枠部分)](images/class8/04_pico_udp_result.png)
 
 今度はPC側の受信シェルにもメッセージが表示されるはずです。**IPアドレスという「宛先の正確な指定」があって初めて、パケットは正しい相手に届く**ことを体感できました。
 
@@ -260,7 +260,7 @@ while True:
     print("返信しました:", addr)
 ```
 
-*(ここにPico Wのブロードキャストに対してPCが応答している様子のスクリーンショットを貼る。`05_broadcast_result.png`)*
+![Pico Wのブロードキャストに対してPCが応答している様子(赤枠部分)](images/class8/05_broadcast_result.png)
 
 > ⚠️ MicroPythonのファームウェアによっては`SO_BROADCAST`という設定自体が存在しないことがあります。上のコードではそれを見越して`try/except`で囲んでいますが、それでもうまく届かない場合は、Thonnyの「ファームウェアの更新」から最新のMicroPythonに更新してみてください(付録の環境構築ページを参照)。
 
@@ -347,7 +347,7 @@ while True:
     time.sleep(1)
 ```
 
-*(ここにTCPで送受信している様子のスクリーンショットを貼る。`06_tcp_result.png`)*
+![TCPで接続確立・受信している様子(赤枠部分)](images/class8/06_tcp_result.png)
 
 UDPのコードと見比べると、**送るたびに宛先を書く(`sendto`)のではなく、先に`connect`して「相手と繋がった状態」を作ってから送る(`sendall`)**という違いに気づくはずです。この違いこそが、ハンドシェイクの有無を表しています。
 
@@ -377,6 +377,8 @@ elapsed = time.time() - start
 print(f"TCP送信完了: {len(data)} byte, {elapsed:.3f} 秒")
 ```
 
+![TCP送信完了の実行結果(赤枠部分)](images/class8/07_speed_result_tcp_send.png)
+
 ```py
 # tcp_file_receiver.py
 import socket
@@ -403,6 +405,8 @@ with open("received_tcp.jpg", "wb") as f:
 print(f"TCP受信完了: {len(received)} byte")
 ```
 
+![TCP受信完了の実行結果(赤枠部分)](images/class8/07_speed_result_tcp_receive.png)
+
 ```py
 # udp_file_sender.py
 import socket
@@ -426,6 +430,8 @@ elapsed = time.time() - start
 
 print(f"UDP送信完了(送り終わるまで): {len(data)} byte, {elapsed:.3f} 秒")
 ```
+
+![UDP送信完了の実行結果(赤枠部分)](images/class8/07_speed_result_udp_send.png)
 
 ```py
 # udp_file_receiver.py
@@ -451,16 +457,18 @@ with open("received_udp.jpg", "wb") as f:
 print(f"UDP受信完了: {len(received)} byte(元のファイルサイズと比べてみよう)")
 ```
 
-*(ここにTCP版・UDP版それぞれの実行時間の表示結果のスクリーンショットを貼る。`07_speed_result.png`)*
+![UDP受信完了の実行結果(赤枠部分)。送信は540974 byteだったのに対し、受信は457006 byteとなっており、同じPC内(ループバック)でもUDPでバイトの欠落が起きることがある](images/class8/07_speed_result_udp_receive.png)
 
 それぞれ実行し、表示された**時間(秒)**と、**受信できたbyte数**(`received_udp.jpg`のファイルサイズが元の`sample.jpg`と一致しているか)を記録して、比較表を作ってみましょう。
 
 | | 送信バイト数 | 受信バイト数 | 所要時間 |
 | --- | --- | --- | --- |
-| TCP | | | |
-| UDP | | | |
+| TCP | 540974 | 540974 | 0.000 秒 |
+| UDP | 540974 | 457006 | 0.008 秒 |
 
 > 💡 同じPCの中(ループバック)で試す限り、UDPでもバイトの欠落はほとんど起きないはずです。欠落や順序の入れ替わりが目に見えて起きるのは、本物の無線(Wi-FiやLoRa)のように、ノイズや電波の弱さがある環境です。次回のLoRa回で、この違いをより実感できるはずです。
+>
+> ⚠️ 上の実行結果例では、同じPC内であってもUDPの受信バイト数が送信バイト数より少なくなっています(540974 byte → 457006 byte)。これはまさに「UDPは届いた保証がない」ことの実例です。CHUNK_SIZEを小さくする、送信間隔を空けるなどで改善することがありますが、根本的な解決にはなりません。この不安定さこそが、次章のTCP(またはUDP+独自の再送処理)が必要になる理由です。
 
 ## 8. 確認課題
 
@@ -474,7 +482,6 @@ print(f"UDP受信完了: {len(received)} byte(元のファイルサイズと比�
 - 6節のTCPサーバーを、複数のクライアントから同時に接続させるとどうなるか試してみましょう(`server.listen(1)`の`1`という数字がヒントです)。
 - 3節のUDP送信を、Pico Wを2台用意して**同時に同じPCへ送信**させ、受信側でどちらから来たか(`addr`)を区別できることを確認してみましょう。
 
-*(ここに確認課題を実施した結果のスクリーンショットを貼る。`08_challenge_result.png`)*
 
 ## 9. 宿題
 
