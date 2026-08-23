@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif">
+  <rect x="0" y="0" width="720" height="300" fill="#f1f3f6" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#1b1e25">今日のゴール:有線を無線に置き換えても、同じように話せる</text>
+
+  <!-- before: wired -->
+  <g>
+    <text x="140" y="60" text-anchor="middle" font-size="12" font-weight="700" fill="#586070">Before(前回までの有線)</text>
+    <rect x="60" y="75" width="90" height="60" rx="6" fill="#e4ebfb" stroke="#3860c6" stroke-width="2"/>
+    <text x="105" y="110" text-anchor="middle" font-size="12" font-weight="700" fill="#3860c6">Pico W</text>
+    <path d="M 150 105 L 230 105" stroke="#3860c6" stroke-width="3" fill="none"/>
+    <rect x="230" y="75" width="90" height="60" rx="6" fill="#e4ebfb" stroke="#3860c6" stroke-width="2"/>
+    <text x="275" y="110" text-anchor="middle" font-size="12" font-weight="700" fill="#3860c6">Pico W</text>
+    <text x="190" y="95" text-anchor="middle" font-size="10" fill="#3860c6">UART直結</text>
+  </g>
+
+  <path d="M 340 105 L 400 105" stroke="#586070" stroke-width="2.5" fill="none" marker-end="url(#a0)"/>
+  <text x="370" y="95" text-anchor="middle" font-size="10.5" fill="#586070">挟む</text>
+
+  <!-- after: wireless -->
+  <g>
+    <text x="580" y="60" text-anchor="middle" font-size="12" font-weight="700" fill="#178a55">After(今日、無線化)</text>
+    <rect x="420" y="75" width="80" height="60" rx="6" fill="#e0f2e9" stroke="#178a55" stroke-width="2"/>
+    <text x="460" y="110" text-anchor="middle" font-size="12" font-weight="700" fill="#178a55">Pico W</text>
+    <rect x="500" y="90" width="36" height="30" rx="4" fill="#ebe4f8" stroke="#6a4dbd" stroke-width="1.8"/>
+    <text x="518" y="110" text-anchor="middle" font-size="9" fill="#6a4dbd">LoRa</text>
+    <path d="M 536 105 Q 555 85 574 105 Q 593 125 612 105" stroke="#6a4dbd" stroke-width="2" fill="none" stroke-dasharray="4 3"/>
+    <rect x="612" y="90" width="36" height="30" rx="4" fill="#ebe4f8" stroke="#6a4dbd" stroke-width="1.8"/>
+    <text x="630" y="110" text-anchor="middle" font-size="9" fill="#6a4dbd">LoRa</text>
+    <rect x="648" y="75" width="60" height="60" rx="6" fill="#e0f2e9" stroke="#178a55" stroke-width="2"/>
+    <text x="678" y="110" text-anchor="middle" font-size="11" font-weight="700" fill="#178a55">Pico W</text>
+  </g>
+
+  <text x="360" y="175" text-anchor="middle" font-size="12.5" fill="#586070">配線(TX/RX)を無線モジュールに繋ぎ変えるだけで、プログラムはほぼそのまま</text>
+
+  <!-- LED remote control teaser -->
+  <g>
+    <circle cx="200" cy="230" r="16" fill="#fdf3e0" stroke="#e0a52c" stroke-width="2"/>
+    <text x="200" y="235" text-anchor="middle" font-size="13">💡</text>
+    <path d="M 340 230 L 240 230" stroke="#e0a52c" stroke-width="2.2" fill="none" stroke-dasharray="5 4" marker-end="url(#a1)"/>
+    <rect x="340" y="210" width="140" height="40" rx="6" fill="#fdf3e0" stroke="#e0a52c" stroke-width="1.5"/>
+    <text x="410" y="234" text-anchor="middle" font-size="11" fill="#8a6a12">「遠くのLEDを操作する」</text>
+  </g>
+  <text x="360" y="275" text-anchor="middle" font-size="12" fill="#586070">最後は、離れた場所のLEDを無線で遠隔操作します</text>
+
+  <defs>
+    <marker id="a0" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#586070"/></marker>
+    <marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e0a52c"/></marker>
+  </defs>
+</svg>

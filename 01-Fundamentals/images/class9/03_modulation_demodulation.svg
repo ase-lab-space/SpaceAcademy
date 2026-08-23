@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif">
+  <rect x="0" y="0" width="760" height="360" fill="#ffffff"/>
+  <text x="380" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1e25">LoRaモジュールの役割:変調と復調</text>
+
+  <!-- Row 1: sender side -->
+  <text x="90" y="65" text-anchor="middle" font-size="12" font-weight="700" fill="#3860c6">UARTのデジタル信号</text>
+  <path d="M 30 90 h10 v20 h10 v-20 h10 v20 h10 v-30 h10 v30 h10 v-20 h10" stroke="#3860c6" stroke-width="2.5" fill="none"/>
+  <text x="90" y="135" text-anchor="middle" font-size="10.5" fill="#3860c6">0と1の電圧の並び</text>
+
+  <path d="M 150 100 L 205 100" stroke="#586070" stroke-width="2.2" fill="none" marker-end="url(#p1)"/>
+
+  <rect x="210" y="65" width="110" height="70" rx="8" fill="#ebe4f8" stroke="#6a4dbd" stroke-width="2.5"/>
+  <text x="265" y="95" text-anchor="middle" font-size="12" font-weight="700" fill="#6a4dbd">送信側のLoRa</text>
+  <text x="265" y="113" text-anchor="middle" font-size="11" fill="#6a4dbd">①変調(Modulate)</text>
+
+  <path d="M 325 100 L 380 100" stroke="#6a4dbd" stroke-width="2.2" fill="none" marker-end="url(#p2)"/>
+
+  <!-- RF wave, curving from row1 right side down to row2 right side -->
+  <path d="M 385 100 q 15 -22 30 0 t 30 0 t 30 0 t 30 0
+           q 20 15 20 60
+           q 0 45 -20 60
+           t -30 0 t -30 0 t -30 0" stroke="#e0a52c" stroke-width="2.5" fill="none"/>
+  <text x="565" y="60" text-anchor="middle" font-size="12" font-weight="700" fill="#8a6a12">920MHz帯の電波(RF)</text>
+  <text x="565" y="185" text-anchor="middle" font-size="10.5" fill="#8a6a12">アンテナから空中へ、そして相手のアンテナへ</text>
+
+  <!-- Row 2: receiver side (mirrored, right to left) -->
+  <path d="M 380 245 L 325 245" stroke="#6a4dbd" stroke-width="2.2" fill="none" marker-end="url(#p3)"/>
+
+  <rect x="210" y="210" width="110" height="70" rx="8" fill="#ebe4f8" stroke="#6a4dbd" stroke-width="2.5"/>
+  <text x="265" y="240" text-anchor="middle" font-size="12" font-weight="700" fill="#6a4dbd">受信側のLoRa</text>
+  <text x="265" y="258" text-anchor="middle" font-size="11" fill="#6a4dbd">②復調(Demodulate)</text>
+
+  <path d="M 205 245 L 150 245" stroke="#178a55" stroke-width="2.2" fill="none" marker-end="url(#p4)"/>
+
+  <text x="90" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="#178a55">元のデジタル信号</text>
+  <path d="M 30 235 h10 v20 h10 v-20 h10 v20 h10 v-30 h10 v30 h10 v-20 h10" stroke="#178a55" stroke-width="2.5" fill="none"/>
+  <text x="90" y="280" text-anchor="middle" font-size="10.5" fill="#178a55">相手のUARTへそのまま出てくる</text>
+
+  <text x="380" y="335" text-anchor="middle" font-size="12" fill="#586070">送信側は「デジタル→電波」に変換(変調)、受信側は「電波→デジタル」に変換(復調)している</text>
+
+  <defs>
+    <marker id="p1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#586070"/></marker>
+    <marker id="p2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6a4dbd"/></marker>
+    <marker id="p3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6a4dbd"/></marker>
+    <marker id="p4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#178a55"/></marker>
+  </defs>
+</svg>

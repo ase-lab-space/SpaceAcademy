@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif">
+  <rect x="0" y="0" width="720" height="300" fill="#ffffff"/>
+  <text x="360" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1e25">通常送信モードで送るデータの中身</text>
+
+  <text x="360" y="60" text-anchor="middle" font-size="12" fill="#586070">直結のUARTでは、送りたい文字列をそのまま送るだけでした</text>
+
+  <!-- direct UART payload -->
+  <rect x="240" y="75" width="240" height="40" rx="6" fill="#e0f2e9" stroke="#178a55" stroke-width="2"/>
+  <text x="360" y="100" text-anchor="middle" font-size="13" font-family="monospace" fill="#178a55">"PING 0"</text>
+
+  <path d="M 360 120 L 360 150" stroke="#586070" stroke-width="2.2" fill="none" marker-end="url(#pd)"/>
+  <text x="440" y="140" text-anchor="middle" font-size="11" fill="#586070">LoRaでは「宛先」を追加する必要がある</text>
+
+  <!-- LoRa payload with header -->
+  <g>
+    <rect x="140" y="160" width="60" height="50" fill="#fdf3e0" stroke="#e0a52c" stroke-width="2"/>
+    <text x="170" y="182" text-anchor="middle" font-size="10" fill="#8a6a12">ADDH</text>
+    <text x="170" y="198" text-anchor="middle" font-size="10" font-family="monospace" fill="#8a6a12">0xFF</text>
+
+    <rect x="200" y="160" width="60" height="50" fill="#fdf3e0" stroke="#e0a52c" stroke-width="2"/>
+    <text x="230" y="182" text-anchor="middle" font-size="10" fill="#8a6a12">ADDL</text>
+    <text x="230" y="198" text-anchor="middle" font-size="10" font-family="monospace" fill="#8a6a12">0xFF</text>
+
+    <rect x="260" y="160" width="60" height="50" fill="#fdf3e0" stroke="#e0a52c" stroke-width="2"/>
+    <text x="290" y="182" text-anchor="middle" font-size="10" fill="#8a6a12">CHAN</text>
+    <text x="290" y="198" text-anchor="middle" font-size="10" font-family="monospace" fill="#8a6a12">0x00</text>
+
+    <rect x="320" y="160" width="260" height="50" fill="#e0f2e9" stroke="#178a55" stroke-width="2"/>
+    <text x="450" y="182" text-anchor="middle" font-size="10" fill="#178a55">ペイロード(送りたい中身)</text>
+    <text x="450" y="198" text-anchor="middle" font-size="11" font-family="monospace" fill="#178a55">"PING 0"</text>
+  </g>
+
+  <text x="230" y="230" text-anchor="middle" font-size="11" font-weight="700" fill="#8a6a12">宛先アドレス(2byte)+チャンネル(1byte) = 合計3byteのヘッダ</text>
+  <text x="230" y="248" text-anchor="middle" font-size="10.5" fill="#8a6a12">0xFF, 0xFFは「ブロードキャスト」= 誰宛でもよい、という意味</text>
+
+  <rect x="90" y="265" width="540" height="24" rx="5" fill="#f1f3f6"/>
+  <text x="360" y="282" text-anchor="middle" font-size="10.5" fill="#586070">受信側の見た目には変化なし。送信側のコードに、この3byteを前置きする処理だけ追加する</text>
+
+  <defs>
+    <marker id="pd" viewBox="0 0 10 10" refX="5" refY="8" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 0L5 10z" fill="#586070"/></marker>
+  </defs>
+</svg>

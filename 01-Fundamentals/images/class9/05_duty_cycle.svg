@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif">
+  <rect x="0" y="0" width="720" height="300" fill="#ffffff"/>
+  <text x="360" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1e25">電波法のルール:送信休止時間(920MHz帯・特定小電力無線局)</text>
+
+  <!-- timeline -->
+  <line x1="60" y1="120" x2="660" y2="120" stroke="#c7ccd4" stroke-width="2"/>
+
+  <!-- send block -->
+  <rect x="80" y="95" width="80" height="50" fill="#fbeaea" stroke="#c1443d" stroke-width="2"/>
+  <text x="120" y="90" text-anchor="middle" font-size="11" font-weight="700" fill="#c1443d">送信(T)</text>
+
+  <!-- pause block -->
+  <rect x="160" y="95" width="480" height="50" fill="#e0f2e9" stroke="#178a55" stroke-width="2"/>
+  <text x="400" y="90" text-anchor="middle" font-size="11" font-weight="700" fill="#178a55">休止(T × 10 以上)</text>
+
+  <!-- brace under -->
+  <text x="120" y="168" text-anchor="middle" font-size="10.5" fill="#c1443d">電波を出している時間</text>
+  <text x="400" y="168" text-anchor="middle" font-size="10.5" fill="#178a55">次の送信まであけなければいけない時間</text>
+
+  <!-- rule box -->
+  <rect x="90" y="195" width="540" height="60" rx="8" fill="#f1f3f6"/>
+  <text x="360" y="220" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1b1e25">ルール:1回の送信時間の少なくとも10倍、休止しなければならない</text>
+  <text x="360" y="240" text-anchor="middle" font-size="11" fill="#586070">(ARIB STD-T108。免許不要の代わりに、みんなで電波を譲り合うためのルール)</text>
+
+  <text x="360" y="280" text-anchor="middle" font-size="11.5" fill="#586070">例:0.5秒送信したら、次の送信まで5秒以上あける必要がある</text>
+</svg>
