@@ -260,9 +260,90 @@ LoRaモジュールは、**「UARTの言葉」を「電波の言葉」に変換�
 ### 発展(時間があれば)
 
 - 2台のボードを実際に離れた部屋・階に置いて、どこまで通信できるか(電波が届く範囲)を確認してみましょう。
-- 送信間隔を`time.sleep(0.1)`のように極端に短くする**とどうなるか、動作の変化だけ観察してみましょう**(電波法のルールに反する使い方になるため、確認は短時間・低出力に留め、実運用では絶対に真似しないでください)。
+- **屋外に出て、距離を変えながら電波の受信強度(RSSI)を測ってみましょう。** 手順は次項の通りです。
 
 *(ここに確認課題を実施した結果のスクリーンショットを貼る。`08_challenge_result.png`)*
+
+### 発展課題:受信強度(RSSI)を測って、距離との関係を確認する
+
+このLoRaモジュールは、**受信した電波の強さ(RSSI:Received Signal Strength Indicator)を数値で取得**できます。単位はdBm(マイナスの値で、0に近いほど電波が強いことを表します)。これを使って、「距離が離れるほど電波はどれくらい弱くなるのか」を実際に測ってみましょう。
+
+#### ① 受信側モジュールでRSSI出力を有効にする
+
+RSSIの出力は、モジュールの設定(レジスタ)を1つ変更すると有効になります。**受信側のボードだけ**、一度Config/DeepSleepモード(M0・M1をどちらもHighにする)にしてから、次のコードを実行してください。
+
+```py
+# rssi_enable.py(受信側のみ、M0=M1=Highの状態で1回だけ実行)
+from machine import UART, Pin
+import time
+
+uart = UART(0, baudrate=9600, tx=Pin(0), rx=Pin(1))
+
+# ① REG3(レジスタ0x05)の現在の値を読み出す
+uart.write(bytes([0xC1, 0x05, 0x01]))
+time.sleep(0.1)
+response = uart.read()
+print("読み出し結果:", response)
+
+current_value = response[3]  # [0xC1, 0x05, 0x01, <現在の値>] の4byte目
+print("現在のREG3:", hex(current_value))
+
+# ② 最上位bit(bit7 = RSSI出力の有効化)だけを1にする
+new_value = current_value | 0x80
+
+# ③ 書き戻す
+uart.write(bytes([0xC0, 0x05, 0x01, new_value]))
+time.sleep(0.1)
+print("書き込み結果:", uart.read())
+```
+
+**現在の設定値を読み出してから、必要なbitだけを立てて書き戻す**(他の設定を壊さないための、レジスタ操作の基本的な作法です)。書き込みが終わったら、受信側のM0・M1を再びLow(GND)に戻し、通常送受信モードに戻してください。
+
+#### ② 受信側のコードにRSSI表示を追加する
+
+```py
+# board_b_receiver.py(RSSI表示版)
+from machine import UART, Pin
+import time
+
+uart = UART(0, baudrate=9600, tx=Pin(0), rx=Pin(1))
+
+while True:
+    if uart.any():
+        data = uart.readline()
+        if data and len(data) > 3:
+            time.sleep(0.05)  # RSSIバイトが届くまで少し待つ
+            rssi_data = uart.read(1)
+
+            payload = data[3:]  # 先頭3byte(宛先)を取り除く
+            try:
+                message = payload.decode("utf-8").strip()
+            except UnicodeError:
+                message = "(文字化け)"
+
+            if rssi_data:
+                rssi_dbm = rssi_data[0] - 256  # dBmへの変換
+                print("受信:", message, " RSSI:", rssi_dbm, "dBm")
+            else:
+                print("受信:", message, " RSSI: 取得できず")
+```
+
+RSSIバイトは、受信したメッセージの**すぐ後に、追加で1byte**届きます。届いた値をそのまま使うのではなく、**値から256を引く**ことでdBmに変換します(例:届いた値が`136`なら、`136 - 256 = -120dBm`)。
+
+#### ③ 屋外で距離を変えて測定する
+
+送信側と受信側のボードを持って屋外に出て、次のように距離を変えながらRSSIを記録してみましょう。
+
+| 距離 | RSSI(1回目) | RSSI(2回目) | RSSI(3回目) | 平均 |
+| --- | --- | --- | --- | --- |
+| 5m | | | | |
+| 20m | | | | |
+| 50m | | | | |
+| 100m | | | | |
+
+*(ここに屋外で測定している様子、および記録したRSSIの表・グラフを貼る。`09_rssi_distance_result.png`)*
+
+距離が離れるほどRSSI(dBm)の値がどう変化するか(0に近づくのか、マイナス側に大きくなっていくのか)を確認し、グラフにしてみましょう。障害物(建物・木など)がある場合とない場合で、同じ距離でも値が変わることにも注目してください。
 
 ## 9. 宿題
 

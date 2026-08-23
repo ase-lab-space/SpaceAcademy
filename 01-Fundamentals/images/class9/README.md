@@ -16,3 +16,4 @@
 - `06_lora_result.png`(3節:LoRa経由での送受信結果、配線の様子)
 - `07_remote_led_result.png`(6節:タクトスイッチでLEDを遠隔操作している様子)
 - `08_challenge_result.png`(8節:確認課題の実施結果)
+- `09_rssi_distance_result.png`(8節・発展課題:屋外でRSSIを測定している様子、および距離とRSSIの関係を示す表・グラフ)
