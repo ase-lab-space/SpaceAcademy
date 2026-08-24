@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 500" font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif">
+  <rect x="0" y="0" width="680" height="500" fill="#ffffff"/>
+  <text x="340" y="26" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1e25">ブレッドボード上での配線イメージ(実体配線図)</text>
+  <text x="340" y="46" text-anchor="middle" font-size="11" fill="#586070">どのピンが物理的にどこにあるかを確認する用。信号の役割は前の図(配線の対応表)を参照</text>
+
+  <!-- breadboard -->
+  <rect x="40" y="65" width="600" height="390" rx="10" fill="#f1ede4" stroke="#c7ccd4" stroke-width="1.5"/>
+
+  <!-- power rails top/bottom (decorative lines only) -->
+  <line x1="60" y1="82" x2="620" y2="82" stroke="#c1443d" stroke-width="1.5"/>
+  <line x1="60" y1="92" x2="620" y2="92" stroke="#3860c6" stroke-width="1.5"/>
+  <line x1="60" y1="428" x2="620" y2="428" stroke="#c1443d" stroke-width="1.5"/>
+  <line x1="60" y1="438" x2="620" y2="438" stroke="#3860c6" stroke-width="1.5"/>
+
+  <!-- Pico W board -->
+  <rect x="90" y="110" width="240" height="80" rx="6" fill="#2f855a" stroke="#1b1e25" stroke-width="1.5"/>
+  <text x="210" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Raspberry Pi Pico W</text>
+  <text x="210" y="158" text-anchor="middle" font-size="10" fill="#e8eaed">(USBコネクタは左側)</text>
+  <!-- Pico pin stubs along bottom edge, widely spaced -->
+  <g fill="#d4d4d4">
+    <rect x="105" y="188" width="7" height="12"/>
+    <rect x="145" y="188" width="7" height="12"/>
+    <rect x="185" y="188" width="7" height="12"/>
+    <rect x="225" y="188" width="7" height="12"/>
+    <rect x="265" y="188" width="7" height="12"/>
+  </g>
+
+  <!-- LoRa module board -->
+  <rect x="330" y="300" width="260" height="80" rx="6" fill="#6a4dbd" stroke="#1b1e25" stroke-width="1.5"/>
+  <text x="460" y="332" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">LoRaモジュール</text>
+  <text x="460" y="350" text-anchor="middle" font-size="9.5" fill="#ebe4f8">E220-900T22S(JP)</text>
+  <!-- LoRa pin stubs along top edge, widely spaced -->
+  <g fill="#d4d4d4">
+    <rect x="345" y="288" width="7" height="12"/>
+    <rect x="375" y="288" width="7" height="12"/>
+    <rect x="405" y="288" width="7" height="12"/>
+    <rect x="435" y="288" width="7" height="12"/>
+    <rect x="465" y="288" width="7" height="12"/>
+    <rect x="495" y="288" width="7" height="12"/>
+    <rect x="525" y="288" width="7" height="12"/>
+  </g>
+  <!-- antenna connector -->
+  <circle cx="565" cy="330" r="9" fill="#d4af37" stroke="#1b1e25" stroke-width="1"/>
+  <text x="565" y="315" text-anchor="middle" font-size="8.5" fill="#ffffff" font-weight="700">ANT</text>
+
+  <!-- jumper wires, curved, matching color scheme from 02_wiring.svg -->
+  <!-- GND (gray) -->
+  <path d="M 108 200 C 108 240, 348 260, 348 288" stroke="#586070" stroke-width="2.5" fill="none"/>
+  <!-- TX -> RXD (red) -->
+  <path d="M 148 200 C 148 245, 378 265, 378 288" stroke="#c1443d" stroke-width="2.5" fill="none"/>
+  <!-- RX <- TXD (green) -->
+  <path d="M 188 200 C 188 250, 408 270, 408 288" stroke="#178a55" stroke-width="2.5" fill="none"/>
+  <!-- GP14 -> AUX (orange) -->
+  <path d="M 228 200 C 228 255, 438 275, 438 288" stroke="#e0a52c" stroke-width="2.5" fill="none"/>
+  <!-- 3V3 -> VCC (blue) -->
+  <path d="M 268 200 C 268 260, 468 280, 468 288" stroke="#3860c6" stroke-width="2.5" fill="none"/>
+
+  <!-- M0, M1 -> bottom GND rail (dashed) -->
+  <path d="M 498 380 L 498 428" stroke="#586070" stroke-width="1.8" stroke-dasharray="4 3" fill="none"/>
+  <path d="M 528 380 L 528 428" stroke="#586070" stroke-width="1.8" stroke-dasharray="4 3" fill="none"/>
+
+  <!-- Pin legend for Pico (left to right), placed clear of the wire curves -->
+  <rect x="350" y="112" width="270" height="60" rx="5" fill="#ffffff" stroke="#c7ccd4" stroke-width="1"/>
+  <text x="362" y="130" font-size="10" font-weight="700" fill="#1b1e25">Pico側ピン(左から)</text>
+  <text x="362" y="148" font-size="9.5" fill="#1b1e25"><tspan fill="#586070">GND</tspan>・<tspan fill="#c1443d">GP0(TX)</tspan>・<tspan fill="#178a55">GP1(RX)</tspan></text>
+  <text x="362" y="164" font-size="9.5" fill="#1b1e25"><tspan fill="#e0a52c">GP14</tspan>・<tspan fill="#3860c6">3V3</tspan></text>
+
+  <!-- Pin legend for LoRa (left to right), placed clear of the wire curves -->
+  <rect x="60" y="305" width="260" height="70" rx="5" fill="#ffffff" stroke="#c7ccd4" stroke-width="1"/>
+  <text x="72" y="323" font-size="10" font-weight="700" fill="#1b1e25">LoRa側ピン(左から)</text>
+  <text x="72" y="341" font-size="9.5" fill="#1b1e25"><tspan fill="#586070">RXD</tspan>・<tspan fill="#c1443d">TXD</tspan>・<tspan fill="#178a55">AUX</tspan>・<tspan fill="#e0a52c">VCC</tspan></text>
+  <text x="72" y="357" font-size="9.5" fill="#1b1e25"><tspan fill="#3860c6">GND</tspan>・M0・M1</text>
+  <text x="72" y="371" font-size="8.5" fill="#586070">(M0・M1はGNDレールへ橋渡し)</text>
+
+  <rect x="60" y="463" width="560" height="28" rx="6" fill="#f1f3f6"/>
+  <text x="340" y="481" text-anchor="middle" font-size="10.5" fill="#586070">配線の色は前の図と対応(凡例は上のボックス参照)。実際のピン名と配置は基板の印字を必ず確認してください</text>
+</svg>

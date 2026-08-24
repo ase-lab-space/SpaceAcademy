@@ -3,48 +3,58 @@
   <text x="340" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1e25">Pico W ⇔ LoRaモジュール(E220-900T22S(JP))の配線</text>
 
   <!-- Pico W -->
-  <rect x="50" y="70" width="160" height="240" rx="8" fill="#e4ebfb" stroke="#3860c6" stroke-width="2.5"/>
+  <rect x="50" y="70" width="160" height="220" rx="8" fill="#e4ebfb" stroke="#3860c6" stroke-width="2.5"/>
   <text x="130" y="95" text-anchor="middle" font-size="13" font-weight="700" fill="#3860c6">Pico W</text>
 
   <g font-size="11" fill="#3860c6">
-    <text x="70" y="130">GP0(TX)</text>
-    <text x="70" y="160">GP1(RX)</text>
-    <text x="70" y="190">3V3</text>
-    <text x="70" y="220">GND</text>
+    <text x="70" y="126">GP0(TX)</text>
+    <text x="70" y="158">GP1(RX)</text>
+    <text x="70" y="194">GP14</text>
+    <text x="70" y="226">3V3</text>
+    <text x="70" y="258">GND</text>
   </g>
 
   <!-- LoRa module -->
-  <rect x="470" y="70" width="160" height="240" rx="8" fill="#ebe4f8" stroke="#6a4dbd" stroke-width="2.5"/>
+  <rect x="470" y="70" width="160" height="280" rx="8" fill="#ebe4f8" stroke="#6a4dbd" stroke-width="2.5"/>
   <text x="550" y="95" text-anchor="middle" font-size="13" font-weight="700" fill="#6a4dbd">LoRaモジュール</text>
 
   <g font-size="11" fill="#6a4dbd">
-    <text x="490" y="130">RXD</text>
-    <text x="490" y="160">TXD</text>
-    <text x="490" y="190">VCC</text>
-    <text x="490" y="220">GND</text>
-    <text x="490" y="250">M0</text>
-    <text x="490" y="280">M1</text>
+    <text x="490" y="126">RXD</text>
+    <text x="490" y="158">TXD</text>
+    <text x="490" y="194">AUX</text>
+    <text x="490" y="226">VCC</text>
+    <text x="490" y="258">GND</text>
+    <text x="490" y="290">M0</text>
+    <text x="490" y="322">M1</text>
   </g>
 
   <!-- crossing TX/RX lines -->
-  <path d="M 150 126 L 530 156" stroke="#c1443d" stroke-width="2" fill="none"/>
-  <text x="340" y="132" text-anchor="middle" font-size="10.5" fill="#c1443d">TX → RXD(クロス)</text>
+  <path d="M 150 122 L 530 154" stroke="#c1443d" stroke-width="2" fill="none"/>
+  <text x="340" y="128" text-anchor="middle" font-size="10.5" fill="#c1443d">TX → RXD(クロス)</text>
 
-  <path d="M 150 156 L 530 126" stroke="#178a55" stroke-width="2" fill="none"/>
-  <text x="340" y="158" text-anchor="middle" font-size="10.5" fill="#178a55">RX ← TXD(クロス)</text>
+  <path d="M 150 154 L 530 122" stroke="#178a55" stroke-width="2" fill="none"/>
+  <text x="340" y="152" text-anchor="middle" font-size="10.5" fill="#178a55">RX ← TXD(クロス)</text>
+
+  <!-- AUX line -->
+  <path d="M 530 190 L 150 190" stroke="#e0a52c" stroke-width="2" fill="none" marker-end="url(#auxArrow)"/>
+  <text x="340" y="186" text-anchor="middle" font-size="10.5" fill="#8a6a12">AUX → GP14(6節で使用)</text>
 
   <!-- power lines -->
-  <path d="M 150 186 L 530 186" stroke="#e0a52c" stroke-width="2" fill="none"/>
-  <text x="340" y="182" text-anchor="middle" font-size="10.5" fill="#8a6a12">3V3 → VCC</text>
+  <path d="M 150 222 L 530 222" stroke="#3860c6" stroke-width="2" fill="none"/>
+  <text x="340" y="218" text-anchor="middle" font-size="10.5" fill="#3860c6">3V3 → VCC</text>
 
-  <path d="M 150 216 L 530 216" stroke="#586070" stroke-width="2" fill="none"/>
-  <text x="340" y="212" text-anchor="middle" font-size="10.5" fill="#586070">GND ↔ GND(共通の基準)</text>
+  <path d="M 150 254 L 530 254" stroke="#586070" stroke-width="2" fill="none"/>
+  <text x="340" y="250" text-anchor="middle" font-size="10.5" fill="#586070">GND ↔ GND(共通の基準)</text>
 
   <!-- M0/M1 to GND -->
-  <path d="M 565 246 L 610 246 L 610 355 L 220 355 L 220 216" stroke="#586070" stroke-width="1.8" stroke-dasharray="4 3" fill="none"/>
-  <path d="M 565 276 L 630 276 L 630 355" stroke="#586070" stroke-width="1.8" stroke-dasharray="4 3" fill="none"/>
-  <text x="340" y="332" text-anchor="middle" font-size="11" font-weight="700" fill="#586070">M0・M1はどちらもGNDへ(Mode 0 = 通常送受信モードにする)</text>
+  <path d="M 565 290 L 610 290 L 610 375 L 220 375 L 220 254" stroke="#586070" stroke-width="1.8" stroke-dasharray="4 3" fill="none"/>
+  <path d="M 565 322 L 630 322 L 630 375" stroke="#586070" stroke-width="1.8" stroke-dasharray="4 3" fill="none"/>
+  <text x="340" y="352" text-anchor="middle" font-size="11" font-weight="700" fill="#586070">M0・M1はどちらもGNDへ(Mode 0 = 通常送受信モードにする)</text>
 
-  <rect x="50" y="375" width="580" height="30" rx="6" fill="#fbeaea"/>
-  <text x="340" y="395" text-anchor="middle" font-size="11" fill="#c1443d">⚠️ アンテナ(ANT)を付けずに送信すると、モジュールを傷める可能性があります</text>
+  <rect x="50" y="392" width="580" height="26" rx="6" fill="#fbeaea"/>
+  <text x="340" y="409" text-anchor="middle" font-size="10.5" fill="#c1443d">⚠️ アンテナ(ANT)を付けずに送信すると、モジュールを傷める可能性があります</text>
+
+  <defs>
+    <marker id="auxArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e0a52c"/></marker>
+  </defs>
 </svg>
