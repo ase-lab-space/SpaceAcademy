@@ -10,13 +10,21 @@
 - `03_multi_file_library.svg` — main.pyとled_utils.pyの2ファイル構成、import・呼び出しの流れを示す図。自作
 - `04_others_library_flow.svg` — picozeroを「GitHubから手動DL」「Thonnyパッケージマネージャ」の2通りで入手する流れを示す図。自作
 
-## 未取得(当日撮影・スクリーンショットして差し替えてください)
+## 未取得(撮影して差し替えてください)
 
-- `05_blink_result.png`(第2節:関数を使ったLED点滅の実行結果)
-- `06_led_utils_result.png`(第5節:led_utils.pyを2ファイル構成で呼び出した結果)
-- `07_thonny_manage_packages.png`(第6節:Thonnyの「パッケージの管理」ダイアログでpicozeroを検索している画面)
-- `08_picozero_pypi.png`(第6節:picozeroのPyPIページ、またはThonnyの検索結果画面)
-- `09_picozero_result.png`(第6節:picozeroライブラリを使った実行結果)
-- `10_challenge_result.png`(第8節:確認課題の実施結果)
+撮影は、第1回のLED(GP15)を配線した状態で、次の順に進めると一度に揃います。
 
-> 💡 `07`・`08`は、実際にThonnyやブラウザを操作した画面をそのままスクリーンショットするのが一番分かりやすいです。著作権的な配慮は不要な内部教材ですが、外部サイトの画像を単体で貼るより「自分たちのThonny画面」を貼るほうが再現性が高くおすすめです。
+| ファイル名 | 撮る場面 | 画面に写っている必要があるもの | 赤枠を入れる場所 |
+| --- | --- | --- | --- |
+| `05_blink_result.png` | 第2節。`blink_led(3)`/`blink_led(5)`の実行 | Thonnyのコードと、点灯中のLED | 不要(写真) |
+| `06_led_utils_result.png` | 第5節②。2ファイル構成での実行 | 左側ファイル一覧にPico W上の`led_utils.py`と`main.py`が両方見えていること | 2ファイルが並んでいる部分 |
+| `07_thonny_manage_packages.png` | 第6節。パッケージの管理ダイアログ | 検索欄の`picozero`の文字と、検索結果の一覧 | 検索欄と検索結果 |
+| `08_picozero_pypi.png` | 第6節。インストール直前 | `picozero`の詳細とインストールボタン(またはPyPIのページ) | インストールボタン |
+| `09_picozero_result.png` | 第6節。picozeroでの点滅 | picozeroのコードと、点灯中のLED | 不要(写真) |
+| `10_challenge_result.png` | 第8節。確認課題の結果 | シェルに出た実行結果(課題1の高速点滅、または課題2の戻り値) | シェルの出力 |
+
+### 撮影時の注意
+
+- `05`と`09`はLEDの点灯が写っている必要があるため、**点灯している瞬間**にシャッターを切ってください。点滅が速くて難しい場合は、`time.sleep`の値を一時的に大きくして撮影して構いません。
+- `06`は「2つのファイルがPico W上に存在している」ことが本文の要点です。ファイル一覧が閉じている場合は、**表示→ファイル**で開いてから撮影してください。
+- 赤枠の体裁は、第8回・第9回(`images/class8`・`images/class9`)の既存画像に合わせてください。
